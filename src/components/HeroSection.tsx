@@ -12,140 +12,109 @@ export default function HeroSection() {
   const typedText = useTypingAnimation(roles, 100, 60, 2000);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-[#020617]">
-      {/* Premium Background Elements */}
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-[#020617] pt-20">
+      {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[40%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-[0%] right-[-5%] w-[60%] h-[40%] bg-accent/5 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
-        
-        {/* Subtle grid pattern for depth */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] brightness-150" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.1),transparent_70%)]" />
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_70%,rgba(249,115,22,0.05),transparent_70%)]" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 pt-28 pb-16 lg:pt-40 lg:pb-20">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 py-12 lg:py-20">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Photo Section - Placed first on mobile for immediate impact */}
+          {/* Photo Section - Shown first on mobile */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.3, ease: [0.21, 0.45, 0.32, 0.9] }}
-            className="lg:col-span-5 lg:order-2 flex justify-center lg:justify-end relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="w-full lg:col-span-5 order-first lg:order-last flex justify-center lg:justify-end"
           >
-            <div className="relative group">
-              {/* Premium Glows - Adjusted for mobile */}
-              <div className="absolute inset-[-15%] bg-primary/20 rounded-full blur-[30px] lg:blur-[80px] animate-pulse-glow" />
-              <div className="absolute inset-[-10%] bg-accent/10 rounded-full blur-[25px] lg:blur-[60px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+            <div className="relative">
+              {/* Glow Effects */}
+              <div className="absolute inset-[-10%] bg-primary/20 rounded-full blur-[40px] lg:blur-[80px] animate-pulse" />
               
-              {/* Profile Image Container */}
-              <div className="relative w-52 h-52 sm:w-64 sm:h-64 lg:w-[450px] lg:h-[450px] rounded-full overflow-hidden border-2 border-white/10 group-hover:border-primary/40 transition-all duration-1000 shadow-2xl backdrop-blur-3xl">
+              <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-[450px] lg:h-[450px] rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
                 <img
                   src={profilePhoto}
                   alt="Nidhi Modi"
-                  className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
+                  className="w-full h-full object-cover"
                 />
-                
-                {/* Overlay Filter */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/50 via-transparent to-transparent pointer-events-none" />
-                
-                {/* Subtle rim light */}
-                <div className="absolute inset-0 rounded-full border border-white/10 group-hover:border-primary/20 transition-all pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/40 to-transparent" />
               </div>
 
-              {/* Floating Sparkle Decoration */}
-              <motion.div 
-                animate={{ y: [0, -10, 0], rotate: [0, 15, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-2 -right-2 lg:-top-6 lg:-right-6 w-10 h-10 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl glass border border-white/10 flex items-center justify-center shadow-2xl backdrop-blur-md"
-              >
-                <Sparkles className="text-primary w-5 h-5 lg:w-6 lg:h-6" />
-              </motion.div>
+              {/* Decorative Icon */}
+              <div className="absolute -top-4 -right-2 lg:-top-6 lg:-right-6 w-12 h-12 lg:w-16 lg:h-16 rounded-2xl glass border border-white/10 flex items-center justify-center shadow-2xl backdrop-blur-md">
+                 <Sparkles className="text-primary w-6 h-6 lg:w-8 lg:h-8" />
+              </div>
             </div>
           </motion.div>
 
           {/* Text Content Section */}
-          <div className="lg:col-span-7 lg:order-1 space-y-8 lg:space-y-12">
+          <div className="w-full lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
             
-            {/* AI Developer Badge - Improved Mobile Scaling */}
+            {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-2 lg:gap-3 px-4 py-2 lg:px-6 lg:py-3 text-[9px] sm:text-xs lg:text-sm font-mono font-black tracking-[0.2em] lg:tracking-[0.4em] text-primary bg-primary/10 border border-primary/20 rounded-full uppercase shadow-lg shadow-primary/5 max-w-full"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-2 text-[10px] sm:text-xs font-mono font-black tracking-widest text-primary bg-primary/10 border border-primary/20 rounded-full uppercase"
             >
-              <Sparkles size={14} className="animate-pulse shrink-0" />
-              <span className="truncate">AI & Machine Learning Developer</span>
+              <Sparkles size={14} className="animate-pulse" />
+              AI & Machine Learning Developer
             </motion.div>
 
-            {/* Main Heading Text */}
+            {/* Main Title */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="space-y-4 lg:space-y-6"
+              transition={{ delay: 0.2 }}
+              className="space-y-4"
             >
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black leading-tight text-foreground tracking-tighter">
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter text-white">
                 Hi, I'm <span className="text-gradient">Nidhi</span>
               </h1>
-              <div className="text-2xl sm:text-4xl lg:text-5xl font-bold text-foreground/70 tracking-tight leading-tight min-h-[4rem] sm:min-h-0">
+              <div className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white/70 min-h-[3rem]">
                 I'm a dedicated <br className="hidden sm:block" />
-                <span className="text-primary">
-                  {typedText}
-                  <span className="animate-blink text-primary">|</span>
-                </span>
+                <span className="text-primary">{typedText}|</span>
               </div>
             </motion.div>
 
-            {/* Description Paragraph */}
             <motion.p 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed font-medium"
+              transition={{ delay: 0.4 }}
+              className="text-base sm:text-xl text-muted-foreground max-w-lg font-medium"
             >
-              Architecting intelligent systems at CHARUSAT — specializing in autonomous agents, predictive analytics, and conversational AI.
+              Architecting intelligent systems at CHARUSAT — specializing in autonomous agents and AI-driven solutions.
             </motion.p>
 
-            {/* Tech Scroller & CTA Section */}
-            <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-10 pt-4">
-              
-              {/* Integrated Tech Scroller - Full width on Mobile */}
-              <motion.div 
-                 initial={{ opacity: 0, scale: 0.95 }}
-                 animate={{ opacity: 1, scale: 1 }}
-                 transition={{ duration: 0.8, delay: 0.5 }}
-                 className="space-y-4 w-full lg:w-80"
-              >
-                <div className="flex items-center gap-2 text-[10px] font-mono font-black text-primary/40 uppercase tracking-[0.4em] pl-1">
-                  Technical Stack
-                </div>
-                <div className="p-1 glass rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden bg-white/5 backdrop-blur-sm group hover:border-primary/20 transition-all duration-500">
-                  <TechScroller />
-                </div>
-              </motion.div>
+            {/* Tech Scroller & Buttons */}
+            <div className="w-full space-y-10">
+               {/* Tech Scroller Container */}
+               <div className="w-full max-w-md mx-auto lg:mx-0">
+                  <div className="text-[10px] font-mono font-black text-primary/40 uppercase tracking-[0.4em] mb-3 pl-1">
+                    Technical Stack
+                  </div>
+                  <div className="glass rounded-2xl border border-white/5 bg-white/5 p-1 overflow-hidden">
+                    <TechScroller />
+                  </div>
+               </div>
 
-              {/* Functional CTA Buttons - Improved Layout for Mobile */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 lg:gap-5 w-full sm:w-auto"
-              >
-                <Button asChild className="group h-14 lg:h-16 px-8 lg:px-10 rounded-2xl text-base lg:text-lg font-bold shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all duration-500 active:scale-95">
-                  <Link to="/projects">
-                    Explore Work
-                    <ArrowDown size={20} className="ml-2 lg:ml-3 group-hover:translate-y-2 transition-transform" />
-                  </Link>
-                </Button>
-                <Button variant="outline" asChild className="h-14 lg:h-16 px-8 lg:px-10 rounded-2xl border-white/10 hover:bg-white/5 text-base lg:text-lg font-bold text-muted-foreground hover:text-foreground transition-all duration-500 active:scale-95">
-                  <a href="https://www.linkedin.com/in/nidhi-modi-2896b9283" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                    <Linkedin size={20} className="mr-2 lg:mr-3" />
-                    Connect
-                  </a>
-                </Button>
-              </motion.div>
+               {/* Action Buttons */}
+               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center lg:justify-start">
+                 <Button asChild size="lg" className="h-14 lg:h-16 px-8 rounded-2xl font-bold text-base lg:text-lg shadow-xl shadow-primary/20">
+                   <Link to="/projects">
+                     Explore Work <ArrowDown size={20} className="ml-2" />
+                   </Link>
+                 </Button>
+                 <Button variant="outline" asChild size="lg" className="h-14 lg:h-16 px-8 rounded-2xl font-bold text-base lg:text-lg border-white/10 hover:bg-white/5">
+                   <a href="https://www.linkedin.com/in/nidhi-modi-2896b9283" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                     <Linkedin size={20} className="mr-2" /> Connect
+                   </a>
+                 </Button>
+               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
